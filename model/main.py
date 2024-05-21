@@ -34,19 +34,12 @@ if uploaded_file:
         # Mostrar predicciones
         st.subheader('Predicciones')
         st.write(predictions)
+        
+        # terminar
+        st.balloons()
+        
+# Footer
+st.sidebar.markdown("""
+Creado por [Alejandro Esquivel](
+""")
 
-# Mejoras en la interfaz gráfica
-st.markdown("""
-<style>
-    .main {
-        background-color: #f0f0f5;
-        padding: 20px;
-        border-radius: 10px;
-    }
-    .sidebar .sidebar-content {
-        background-color: #f8f9fa;
-        padding: 10px;
-        border-radius: 10px;
-    }
-</style>
-""", unsafe_allow_html=True)
