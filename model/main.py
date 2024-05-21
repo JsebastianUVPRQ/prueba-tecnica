@@ -1,40 +1,52 @@
-import os
-# usa streamlit para crear la interfaz web para el modelo 'model.pkl'
 import streamlit as st
 import pandas as pd
+import joblib
+import json
 
-# Carga el modelo
-model = pd.read_pickle('model.pkl')
+# Cargar el modelo
+model = joblib.load('model.pkl')
 
-# Crea la interfaz web
-st.title('Modelo de Machine Learning')
-st.write('Este es un modelo de Machine Learning que predice la clase de un objeto.')
+# Título y descripción
+st.title('Aplicación de Predicción')
+st.markdown("""
+Esta aplicación utiliza un modelo de machine learning para hacer predicciones a partir de un archivo JSON.
+""")
 
-# server
-if __name__ == '__main__':
-    st.write('Modelo cargado correctamente.')
-    st.write('Puedes usar este modelo para predecir la clase de un objeto.')
-    st.write('Para hacer una predicción, introduce los valores de las características del objeto en el formulario de abajo y haz clic en el botón "Predecir".')
-    st.write('El modelo te dará la clase del objeto.')
-    st.write('¡Buena suerte!')
+# Cargar archivo JSON
+st.sidebar.header('Cargar archivo JSON')
+uploaded_file = st.sidebar.file_uploader("Sube tu archivo JSON", type="json")
 
-    # Crea un formulario para introducir los valores de las características del objeto
-    feature1 = st.number_input('Introduce el valor de la característica 1:', min_value=0, max_value=100, value=50)
-    feature2 = st.number_input('Introduce el valor de la característica 2:', min_value=0, max_value=100, value=50)
-    feature3 = st.number_input('Introduce el valor de la característica 3:', min_value=0, max_value=100, value=50)
-    feature4 = st.number_input('Introduce el valor de la característica 4:', min_value=0, max_value=100, value=50)
-
-    # Crea un botón para hacer la predicción
-    if st.button('Predecir'):
-        # Hace la predicción
-        prediction = model.predict([[feature1, feature2, feature3, feature4]])
-        st.write('La clase del objeto es:', prediction[0])
+if uploaded_file:
+    # Leer archivo JSON
+    data = json.load(uploaded_file)
     
-    st.write('¡Gracias por usar este modelo!')
+    # Convertir JSON a DataFrame
+    df = pd.json_normalize(data)
     
-    # Ejecuta la aplicación
-    st.write('Para ejecutar la aplicación, ejecuta el siguiente comando en tu terminal:')
-    st.write('streamlit run main.py')
+    # Mostrar datos cargados
+    st.subheader('Datos cargados')
+    st.write(df)
     
-    # Enlace a la documentación de Streamlit
-    
+    # Realizar predicciones
+    if st.button('Realizar predicción'):
+        predictions = model.predict(df)
+        
+        # Mostrar predicciones
+        st.subheader('Predicciones')
+        st.write(predictions)
+
+# Mejoras en la interfaz gráfica
+st.markdown("""
+<style>
+    .main {
+        background-color: #f0f0f5;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .sidebar .sidebar-content {
+        background-color: #f8f9fa;
+        padding: 10px;
+        border-radius: 10px;
+    }
+</style>
+""", unsafe_allow_html=True)

@@ -1,55 +1,62 @@
-# crea un json que tenga 4 registros de prueba para usarlos en la API
-# dame la sintaxis de un json, es para copiarlo
-
-{
-    "data": [
-        {
-            "HallwayType": "terraced",
-            "HeatingType": "individual",
-            "AptManageType": "management_in_trust",
-            "TimeToBusStop": "15min",
-            "TimeToSubway": "30min",
-            "YearBuilt": 2006,
-            "MonthOfSale": 8,
-            "Size.sqf.": 1000,
-            "Floor": 3,
-            "Elevator": 1,
-            "N_Parkinglot(Ground)": 1,
-            "N_Parkinglot(Basement)": 1,
-            "TimeToBusStop": "15min",
-            "TimeToSubway": "30min"
-        },
-        {
-            "HallwayType": "terraced",
-            "HeatingType": "individual",
-            "AptManageType": "management_in_trust",
-            "TimeToBusStop": "15min",
-            "TimeToSubway": "30min",
-            "YearBuilt": 2006,
-            "MonthOfSale": 8,
-            "Size.sqf.": 1000,
-            "Floor": 3,
-            "Elevator": 1,
-            "N_Parkinglot(Ground)": 1,
-            "N_Parkinglot(Basement)": 1,
-            "TimeToBusStop": "15min",
-            "TimeToSubway": "30min"
-        },
-        {
-            "HallwayType": "terraced",
-            "HeatingType": "individual",
-            "AptManageType": "management_in_trust",
-            "TimeToBusStop": "15min",
-            "TimeToSubway": "30min",
-            "YearBuilt": 2006,
-            "MonthOfSale": 8,
-            "Size.sqf.": 1000,
-            "Floor": 3,
-            "Elevator": 1,
-            "N_Parkinglot(Ground)": 1,
-            "N_Parkinglot(Basement)": 1,
-            "TimeToBusStop": "15min",
-            "TimeToSubway": "30min"
-        }
-    ]
-}
+[
+    {
+      "YearBuilt": 2000,
+      "YrSold": 2010,
+      "MonthSold": 5,
+      "Size.sqf": 1200,
+      "Floor": 3,
+      "N_Parkinglot.Ground.": 1,
+      "N_Parkinglot.Basement.": 1,
+      "N_APT": 2,
+      "AptManageType_management_in_trust": 1,
+      "AptManageType_self_management": 0,
+      "TimeToBusStop_0~5min": 1,
+      "TimeToBusStop_10min~15min": 0,
+      "TimeToBusStop_5min~10min": 0,
+      "TimeToSubway_0-5min": 1,
+      "TimeToSubway_10min~15min": 0,
+      "TimeToSubway_15min~20min": 0,
+      "TimeToSubway_5min~10min": 0,
+      "TimeToSubway_no_bus_stop_nearby": 0
+    },
+    {
+      "YearBuilt": 1995,
+      "YrSold": 2005,
+      "MonthSold": 8,
+      "Size.sqf": 1500,
+      "Floor": 2,
+      "N_Parkinglot.Ground.": 2,
+      "N_Parkinglot.Basement.": 0,
+      "N_APT": 3,
+      "AptManageType_management_in_trust": 0,
+      "AptManageType_self_management": 1,
+      "TimeToBusStop_0~5min": 0,
+      "TimeToBusStop_10min~15min": 1,
+      "TimeToBusStop_5min~10min": 0,
+      "TimeToSubway_0-5min": 0,
+      "TimeToSubway_10min~15min": 1,
+      "TimeToSubway_15min~20min": 0,
+      "TimeToSubway_5min~10min": 0,
+      "TimeToSubway_no_bus_stop_nearby": 0
+    },
+    {
+      "YearBuilt": 2015,
+      "YrSold": 2020,
+      "MonthSold": 3,
+      "Size.sqf": 1800,
+      "Floor": 4,
+      "N_Parkinglot.Ground.": 1,
+      "N_Parkinglot.Basement.": 2,
+      "N_APT": 1,
+      "AptManageType_management_in_trust": 0,
+      "AptManageType_self_management": 1,
+      "TimeToBusStop_0~5min": 0,
+      "TimeToBusStop_10min~15min": 0,
+      "TimeToBusStop_5min~10min": 1,
+      "TimeToSubway_0-5min": 0,
+      "TimeToSubway_10min~15min": 0,
+      "TimeToSubway_15min~20min": 1,
+      "TimeToSubway_5min~10min": 0,
+      "TimeToSubway_no_bus_stop_nearby": 0
+    }
+  ]
