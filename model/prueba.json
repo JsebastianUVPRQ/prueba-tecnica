@@ -1,0 +1,55 @@
+# crea un json que tenga 4 registros de prueba para usarlos en la API
+# dame la sintaxis de un json, es para copiarlo
+
+{
+    "data": [
+        {
+            "HallwayType": "terraced",
+            "HeatingType": "individual",
+            "AptManageType": "management_in_trust",
+            "TimeToBusStop": "15min",
+            "TimeToSubway": "30min",
+            "YearBuilt": 2006,
+            "MonthOfSale": 8,
+            "Size.sqf.": 1000,
+            "Floor": 3,
+            "Elevator": 1,
+            "N_Parkinglot(Ground)": 1,
+            "N_Parkinglot(Basement)": 1,
+            "TimeToBusStop": "15min",
+            "TimeToSubway": "30min"
+        },
+        {
+            "HallwayType": "terraced",
+            "HeatingType": "individual",
+            "AptManageType": "management_in_trust",
+            "TimeToBusStop": "15min",
+            "TimeToSubway": "30min",
+            "YearBuilt": 2006,
+            "MonthOfSale": 8,
+            "Size.sqf.": 1000,
+            "Floor": 3,
+            "Elevator": 1,
+            "N_Parkinglot(Ground)": 1,
+            "N_Parkinglot(Basement)": 1,
+            "TimeToBusStop": "15min",
+            "TimeToSubway": "30min"
+        },
+        {
+            "HallwayType": "terraced",
+            "HeatingType": "individual",
+            "AptManageType": "management_in_trust",
+            "TimeToBusStop": "15min",
+            "TimeToSubway": "30min",
+            "YearBuilt": 2006,
+            "MonthOfSale": 8,
+            "Size.sqf.": 1000,
+            "Floor": 3,
+            "Elevator": 1,
+            "N_Parkinglot(Ground)": 1,
+            "N_Parkinglot(Basement)": 1,
+            "TimeToBusStop": "15min",
+            "TimeToSubway": "30min"
+        }
+    ]
+}
