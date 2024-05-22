@@ -1,9 +1,9 @@
 import streamlit as st
 import pandas as pd
-import pickle
 import joblib
 
-# app que usa el modelo model.pkl, en la cual se sube un archivo prueba.csv y se obtiene el resultado de la predicción
+# app que usa el modelo model.pkl, en la cual se sube un archivo prueba.csv
+# y se obtiene el resultado de la predicción
 # de la variable target
 
 # cargar el modelo
@@ -27,10 +27,7 @@ if uploaded_file is not None:
         y_pred = [int(i) for i in y_pred]
         # mostrar el resultado. numero | y_pred
         st.write(f'El número filas para predecir es: {numero}')
-        st.write(y_pred)    
-    
+        st.write(y_pred)
+
     except ValueError as e:
         st.error(f"Error reading JSON file: {e}")
-
-
-
