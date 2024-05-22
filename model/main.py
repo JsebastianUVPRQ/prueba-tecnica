@@ -32,7 +32,6 @@ if uploaded_file is not None:
     
     except ValueError as e:
         st.error(f"Error reading JSON file: {e}")
-    except Exception as e:
-        st.error(f"An unexpected error occurred: {e}")
+
 
 
