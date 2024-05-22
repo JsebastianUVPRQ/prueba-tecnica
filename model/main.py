@@ -1,39 +1,29 @@
 #crea la app usando streamlit
 import streamlit as st
 import pandas as pd
-import numpy as np
 import pickle
-import json
 import joblib
 
-# app que usa el modelo model.pkl, en la cual se sube un archivo prueba.json y se obtiene la predicción
-# se debe retornar un json con la prediccion 
+# app que usa el modelo model.pkl, en la cual se sube un archivo prueba.csv y se obtiene el resultado de la predicción
+# de la variable target
 
-# Load the model
-model = joblib.load('./model.pkl')
+# cargar el modelo
+model = joblib.load('model.pkl')
 
+# título de la app
+st.title('Predicción de la variable target')
 
-def main():
-    st.title('Predicción de la variable objetivo')
-    st.write('Este es un ejemplo de cómo usar un modelo de Machine Learning para predecir la variable objetivo de un conjunto de datos.')
-    st.write('En este caso, se ha entrenado un modelo de regresión lineal con un conjunto de datos de ejemplo y se ha guardado el modelo en un archivo `model.pkl`.')
-    st.write('A continuación, se muestra un formulario en el que puedes subir un archivo con los datos de prueba y obtener la predicción de la variable objetivo.')
+# subir archivo
+uploaded_file = st.file_uploader("Subir archivo", type=['csv'])
 
-    uploaded_file = st.file_uploader("Sube un archivo JSON con los datos de prueba", type=["json"])
-    if uploaded_file is not None:
-        data = json.load(uploaded_file)
-        X = pd.DataFrame(data, index=[0])
-        y_pred = model.predict(X)
-        st.write('La predicción de la variable objetivo es:')
-        st.write(y_pred[0])
-        
-        # Return the prediction as a JSON
-        st.write('La predicción de la variable objetivo es:')
-        st.json({'prediction': y_pred[0]})
-        
-if __name__ == '__main__':
-    main()
+if uploaded_file is not None:
+    # leer el archivo
+    df = pd.read_csv(uploaded_file)
+    # predecir
+    print('Sale Price')
+    y_pred = model.predict(df)
+    # mostrar el resultado
+    st.write(y_pred)
     
-#para correr la app se debe ejecutar el siguiente comando en la terminal
-#streamlit run main.py
-
+    
+    
