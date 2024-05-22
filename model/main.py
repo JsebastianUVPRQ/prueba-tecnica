@@ -17,16 +17,22 @@ st.title('Predicción de la variable Sale Price')
 uploaded_file = st.file_uploader("Suba un archivo csv", type=['csv'])
 
 if uploaded_file is not None:
-    # leer el archivo
-    df = pd.read_csv(uploaded_file)
-    # predecir
-    print('Sale Price')
-    numero = df.shape[0]
-    y_pred = model.predict(df)
-    # usar numeros naturales en el resultado y_pred
-    y_pred = [int(i) for i in y_pred]
-    # mostrar el resultado. numero | y_pred
-    st.write(f'El número filas para predecir es: {numero}')
-    st.write(y_pred)    
+    try:
+        # leer el archivo
+        df = pd.read_csv(uploaded_file)
+        # predecir
+        print('Sale Price')
+        numero = df.shape[0]
+        y_pred = model.predict(df)
+        # usar numeros naturales en el resultado y_pred
+        y_pred = [int(i) for i in y_pred]
+        # mostrar el resultado. numero | y_pred
+        st.write(f'El número filas para predecir es: {numero}')
+        st.write(y_pred)    
     
-    
+    except ValueError as e:
+        st.error(f"Error reading JSON file: {e}")
+    except Exception as e:
+        st.error(f"An unexpected error occurred: {e}")
+
+
