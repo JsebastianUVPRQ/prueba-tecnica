@@ -14,7 +14,7 @@ model = joblib.load('model.pkl')
 st.title('Predicción de la variable Sale Price')
 
 # subir archivo
-uploaded_file = st.file_uploader("Subir archivo", type=['csv'])
+uploaded_file = st.file_uploader("Suba un archivo csv", type=['csv'])
 
 if uploaded_file is not None:
     # leer el archivo
@@ -26,7 +26,7 @@ if uploaded_file is not None:
     # usar numeros naturales en el resultado y_pred
     y_pred = [int(i) for i in y_pred]
     # mostrar el resultado. numero | y_pred
-    st.write(f'El número de registros es: {numero}')
+    st.write(f'El número filas para predecir es: {numero}')
     st.write(y_pred)    
     
     
