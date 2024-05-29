@@ -11,6 +11,11 @@
 
 # we have to return the value of the money up to date (2023)
 import streamlit as st
+import pandas as pd
+
+houses = pd.read_csv('dict_data.dat')
+# convierte el archivo en un diccionario
+houses = houses.to_dict()
 
 
 COL = {
@@ -90,7 +95,6 @@ USA = {
 }
 
 
-
 def calculate_value(year, country, amount):
     '''Calculate the value of the money today
     from a given year and country using the inflation rate
@@ -124,8 +128,16 @@ def main():
     st.title('Current value of a property')
     st.write('- This app use de DreamHouse data to show the current value of a property based on the year of purchase')
     st.write('- We have 4124 real state properties. The prices are in USD')
+    st.write('Introduce the ID of the property you want to see the current value')
     
-    house = st.number_input('House ID', min_value=0, max_value=4124, value=0, step=1)
+    id_house = st.number_input('Property ID', min_value=0, value=0, step=1)
+    #use the DICTIONARY houses to get the value of the house
+    if st.button('Search'):
+        # keep in mind that the houses dictionary has the data in string format and without header
+        id_house = str(id_house)
+        result = calculate_value(houses['Year'][id_house], 'USD', houses['Price'][id_house])
+        st.write(f'The house with ID {id_house} was bought in {houses["Year"][id_house]} for {houses["Price"][id_house]} USD')
+        st.write(f'The current value of the house is {result:.2f} USD')
 
 
 if __name__ == '__main__':
