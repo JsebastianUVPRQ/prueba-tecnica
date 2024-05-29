@@ -5,7 +5,7 @@
 # the data are in COL_inflacion_anual_Dic.dat and USA_inflacion_anual_Dic.dat
 # we have to read them and create a dictionary with the data
 
-# we have to create a function that receives the year, the country 
+# we have to create a function that receives the year, the country
 # (two options) and the amount of money
 # USD and COP (colombian pesos)
 
@@ -90,6 +90,8 @@ USA = {
 }
 
 # calculate the value of the money today
+
+
 def calculate_value(year, country, amount):
     if country == 'USA':
         while year < 2023:
@@ -104,17 +106,20 @@ def calculate_value(year, country, amount):
 
 def main():
     st.title('Inflation Calculator')
-    st.write('This app calculates the value of money in the future based on '
-             'inflation data')
+    st.write('- This app calculates the current value of an amount of money in a given year ')
+    st.write('- The data is based on the inflation rate of Colombia and the USA')
+    st.write('- The available years are from 1989 to 2023')
+    st.write('                                                         ')
+    st.write('                                                         ')
     
     country = st.selectbox('Country', ['USA', 'COL'])
-    year = st.select_slider('Year', options=list(range(1989, 2023)))
+    year = st.select_slider('Year', options=list(range(1989, 2024)))
     amount = st.number_input('Amount', min_value=0.0, label_visibility='hidden')
 
     if st.button('Calculate'):
         result = calculate_value(year, country, amount)
-        st.write(f'The value of {amount} {country} pesos in 2023 is {result:.2f} '
-                 f'{country} pesos')
+        st.write(f'The value of {amount} in {country} in 2023 is {result:.2f} '
+                 f'{country}')
 
 if __name__ == '__main__':
     main()
