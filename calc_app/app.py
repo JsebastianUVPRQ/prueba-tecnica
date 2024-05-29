@@ -93,16 +93,15 @@ USA = {
 
 
 def calculate_value(year, country, amount):
-    if country == 'USA':
-        while year < 2023:
-            amount = amount * (1 + USA[year]/100)
+    if country == 'USD':
+        while year <= 2023:
+            amount *= (1 + USA[year] / 100)
             year += 1
-    elif country == 'COL':
-        while year < 2023:
-            amount = amount * (1 + COL[year]/100)
+    elif country == 'COP':
+        while year <= 2023:
+            amount *= (1 + COL[year] / 100)
             year += 1
     return amount
-
 
 def main():
     st.title('Inflation Calculator')
@@ -112,9 +111,9 @@ def main():
     st.write('                                                         ')
     st.write('                                                         ')
     
-    country = st.selectbox('Country', ['USA', 'COL'])
+    country = st.selectbox('Currency', ['USD', 'COP'])
     year = st.select_slider('Year', options=list(range(1989, 2024)))
-    amount = st.number_input('Amount', min_value=0.0, label_visibility='hidden')
+    amount = st.number_input('Amount', min_value=0.0, label_visibility='hidden', value=0.0, step=0.1)
 
     if st.button('Calculate'):
         result = calculate_value(year, country, amount)
