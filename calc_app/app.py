@@ -10,9 +10,7 @@
 # USD and COP (colombian pesos)
 
 # we have to return the value of the money up to date (2023)
-import os
 import streamlit as st
-import pandas as pd
 
 
 COL = {
@@ -106,15 +104,17 @@ def calculate_value(year, country, amount):
 
 def main():
     st.title('Inflation Calculator')
-    st.write('This app calculates the value of money in the future based on inflation data')
-
-    year = st.number_input('Year', min_value=1989, max_value=2023, step=1)
+    st.write('This app calculates the value of money in the future based on '
+             'inflation data')
+    
     country = st.selectbox('Country', ['USA', 'COL'])
-    amount = st.number_input('Amount', min_value=0.0, step=1.0)
+    year = st.select_slider('Year', options=list(range(1989, 2023)))
+    amount = st.number_input('Amount', min_value=0.0, label_visibility='hidden')
 
     if st.button('Calculate'):
         result = calculate_value(year, country, amount)
-        st.write(f'The value of {amount} {country} pesos in 2023 is {result:.2f} {country} pesos')
+        st.write(f'The value of {amount} {country} pesos in 2023 is {result:.2f} '
+                 f'{country} pesos')
 
 if __name__ == '__main__':
     main()
