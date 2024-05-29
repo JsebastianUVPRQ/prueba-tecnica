@@ -93,6 +93,9 @@ USA = {
 
 
 def calculate_value(year, country, amount):
+    '''Calculate the value of the money today
+    from a given year and country using the inflation rate
+    for each year until 2023'''
     if country == 'USD':
         while year <= 2023:
             amount *= (1 + USA[year] / 100)
