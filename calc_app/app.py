@@ -89,7 +89,6 @@ USA = {
     2023: 3.4
 }
 
-# calculate the value of the money today
 
 
 def calculate_value(year, country, amount):
@@ -106,22 +105,29 @@ def calculate_value(year, country, amount):
             year += 1
     return amount
 
+
 def main():
     st.title('Inflation Calculator')
     st.write('- This app calculates the current value of an amount of money in a given year ')
     st.write('- The data is based on the inflation rate of Colombia and the USA')
     st.write('- The available years are from 1989 to 2023')
     st.write('                                                         ')
-    st.write('                                                         ')
     
     country = st.selectbox('Currency', ['USD', 'COP'])
     year = st.select_slider('Year', options=list(range(1989, 2024)))
-    amount = st.number_input('Amount', min_value=0.0, label_visibility='hidden', value=0.0, step=0.1)
+    amount = st.number_input('Amount', min_value=0.0, value=0.0, step=0.1)
     
     if st.button('Calculate'):
         result = calculate_value(year, country, amount)
-        st.write(f'The value of {amount} {country} from {year} in 2023 is {result:.2f} '
-                 f'{country}')
+        st.write(f'{amount} from {year} is equivalent to {result:.2f} {country} in 2023')
+    
+    st.title('Current value of a property')
+    st.write('- This app use de DreamHouse data to show the current value of a property based on the year of purchase')
+    st.write('- We have 4124 real state properties. The prices are in USD')
+    
+    house = st.number_input('House ID', min_value=0, max_value=4124, value=0, step=1)
+
 
 if __name__ == '__main__':
     main()
+
