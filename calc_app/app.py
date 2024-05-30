@@ -1,21 +1,10 @@
-# web app with streamlit
-# we wanna build an inflation calculator
-# the value of IPC changes every year
-
-# the data are in COL_inflacion_anual_Dic.dat and USA_inflacion_anual_Dic.dat
-# we have to read them and create a dictionary with the data
-
-# we have to create a function that receives the year, the country
-# (two options) and the amount of money
-# USD and COP (colombian pesos)
-
-# we have to return the value of the money up to date (2023)
 import streamlit as st
+from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 
-# el dataset tiene el nombre de las columnas en la primera fila
-# se llama dict_data.csv
-houses = pd.read_csv('dict_data.csv', index_col=0)
+# Create a connection object.
+conn = st.connection("gsheets", type=GSheetsConnection)
+houses = conn.read()
 houses['fecha'] = houses['fecha'].astype(int)
 houses['SalePrice'] = houses['SalePrice'].astype(int)
 
