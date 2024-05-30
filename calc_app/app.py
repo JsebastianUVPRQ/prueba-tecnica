@@ -4,10 +4,10 @@ import pandas as pd
 
 # guarda el secreto en una variable 
 
-archive = st.secrets["connections.gsheets"]
+# archive = st.secrets["connections.gsheets"]
 
 # Create a connection object.
-conn = st.connections.gsheets(archive)
+conn = st.connection("gsheets") 
 houses = conn.read()
 houses['fecha'] = houses['fecha'].astype(int)
 houses['SalePrice'] = houses['SalePrice'].astype(int)

@@ -1,3 +1,3 @@
 streamlit
-streamlit-gsheets
-GSheetsConnection
+streamlit_gsheets
+
