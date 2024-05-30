@@ -102,11 +102,11 @@ def calculate_value(year, country, amount):
     for each year until 2023'''
     if country == 'USD':
         while year <= 2023:
-            amount *= (1 + USA[year] / 100)
+            amount += amount*(1 + USA[year] / 100)
             year += 1
     elif country == 'COP':
         while year <= 2023:
-            amount *= (1 + COL[year] / 100)
+            amount += amount*(1 + COL[year] / 100)
             year += 1
     return amount
 
