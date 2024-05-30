@@ -2,8 +2,12 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 
+# guarda el secreto en una variable 
+
+archive = st.secrets["connections.gsheets"]
+
 # Create a connection object.
-conn = st.connection("gsheets", type=GSheetsConnection)
+conn = st.connections.gsheets(archive)
 houses = conn.read()
 houses['fecha'] = houses['fecha'].astype(int)
 houses['SalePrice'] = houses['SalePrice'].astype(int)
