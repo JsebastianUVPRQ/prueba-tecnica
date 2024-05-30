@@ -12,7 +12,6 @@
 # we have to return the value of the money up to date (2023)
 import streamlit as st
 import pandas as pd
-import joblib
 
 # el dataset tiene el nombre de las columnas en la primera fila
 # se llama dict_data.csv
