@@ -1,6 +1,6 @@
-# Calculadora de inflacion
-[![Streamlit App](https://inflacion-calc-dreamhomes-jsebastiands.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://inflacion-calc-dreamhomes-jsebastiands.streamlit.app/)
 
+# Calculadora de inflacion
 ## Descripción
 
 Esta aplicación te permite calcular el valor actual de una cantidad de dinero en un año determinado, basándose en la tasa de inflación de Colombia y los Estados Unidos. Además, puedes obtener el valor actual de una propiedad inmobiliaria usando datos de DreamHouse.
