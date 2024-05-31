@@ -120,7 +120,7 @@ def main():
         st.write(f'{amount} from {year} is equivalent to {result:.2f} {country} in 2023')
     
     st.title('Current value of a property')
-    st.write('- This app use de DreamHouse data to show the current value of a property based on the year of purchase')
+    st.write('- This app uses DreamHouses dataset to show the current value of a property based on the year of purchase')
     st.write('- We have 4124 real state properties. The prices are in USD')
     st.write('Introduce the ID (0-4123) of the property you want to see the current value')
     
