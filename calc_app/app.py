@@ -8,7 +8,7 @@ import pandas as pd
 
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
-houses = conn.read()
+houses = conn.read(spreadsheet=None)
 houses['fecha'] = houses['fecha'].astype(int)
 houses['SalePrice'] = houses['SalePrice'].astype(int)
 
